@@ -39,5 +39,24 @@ module LayoutHelper
       "#{page_title} | #{site_name}"
     end
   end
+  
+  def menus
+    the_menus = {}
+    
+    #specify static menus
+    the_menus.store(:home, home_path)
+    
+    
+    #define conditional menus
+    if is_logged_in?
+      the_menus.store(:logout, logout_path)
+    else
+      the_menus.store(:login, login_path)
+    end
+    
+    the_menus.store(:contact, contact_path)
+    
+    return the_menus
+  end
 
 end

@@ -60,4 +60,8 @@ Rails.application.routes.draw do
   get 'home' => 'high_voltage/pages#show', id: 'home'
   get 'privacy' => 'high_voltage/pages#show', id: 'privacy'
   
+  get     'login'   =>    'sessions#new'
+  post    'login'   =>    'sessions#create'
+  delete  'logout'  =>    'sessions#destroy'
+  
 end
